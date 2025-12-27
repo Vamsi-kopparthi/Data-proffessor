@@ -1,0 +1,156 @@
+:root {
+  --neon: #ccff00;
+  --bg: #050505;
+  --glass: rgba(255, 255, 255, 0.03);
+  --border: rgba(204, 255, 0, 0.2);
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg);
+  color: white;
+}
+
+/* Modal Overlay */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  display: none;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.overlay.active {
+  display: block;
+}
+
+.scroll-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+/* Header */
+.roadmap-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.roadmap-header h1 {
+  font-size: 3rem;
+  letter-spacing: 5px;
+  color: var(--neon);
+  text-shadow: 0 0 20px rgba(204, 255, 0, 0.4);
+}
+
+/* Roadmap Path */
+.roadmap-content {
+  position: relative;
+  padding-top: 20px;
+}
+
+.roadmap-line-svg {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 100%;
+  z-index: 0;
+}
+
+/* Tech Hexagons */
+.node-cluster {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.tech-hex {
+  width: 80px;
+  height: 45px;
+  background: #111;
+  border: 2px solid var(--neon);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.8rem;
+  position: relative;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  box-shadow: 0 0 15px rgba(204, 255, 0, 0.1);
+}
+
+/* Checkpoint Cards */
+.phase {
+  margin-bottom: 120px;
+  opacity: 0.2;
+  transform: translateY(50px);
+  transition: all 0.8s ease;
+}
+
+.phase.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.checkpoint-card {
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border);
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 400px;
+  margin: 0 auto;
+  transition: 0.3s;
+}
+
+.checkpoint-card:hover {
+  border-color: var(--neon);
+  box-shadow: 0 0 30px rgba(204, 255, 0, 0.1);
+}
+
+.badge {
+  color: var(--neon);
+  font-size: 0.7rem;
+  border: 1px solid var(--neon);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+/* UI Elements */
+.open-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 15px 30px;
+  background: transparent;
+  border: 2px solid var(--neon);
+  color: var(--neon);
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.open-btn:hover {
+  background: var(--neon);
+  color: black;
+}
+
+.close-btn {
+  position: fixed;
+  top: 20px;
+  right: 40px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 1001;
+}
